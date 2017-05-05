@@ -92,11 +92,7 @@
                                      <a href="/biblioteca-2017v2/controladorAutor?metodo=eliminar&id=<c:out value="${autor.autor_id}"/>" type="button" class="btn btn-danger">Eliminar</a>
                         </display:column>
                    </display:table>
-
-                    
-                  
-                    
-                    -->
+                       
                   </div>
                 </div>
               </div>
