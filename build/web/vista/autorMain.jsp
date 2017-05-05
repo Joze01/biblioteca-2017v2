@@ -7,7 +7,7 @@
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
-
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -40,7 +40,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/biblioteca-2017/controladorAutor" method="post">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/biblioteca-2017v2/controladorAutor" method="post">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre <span class="required">*</span>
@@ -81,30 +81,22 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Nombre</th>
-                          <th>Descripcion</th>
-                          <th>Opciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <sql:query var="q1" dataSource="jdbc/mysql" sql="SELECT * FROM autor" /> 
+                    <sql:query var="q1" dataSource="jdbc/mysql" sql="SELECT * FROM autor" /> 
+                        
+                    <display:table  id="autor" htmlId="datatable" class="table table-striped table-bordered" pagesize="3" name="${q1.rows}" export="true" >
+                        <display:column title="Codigo" property="autor_id" sortable="true"/>
+                        <display:column title="Nombre" property="autor_nombre" sortable="true"/>
+                        <display:column title="Descripcion" property="autor_descripcion" sortable="true"/>
+                        <display:column title="Funciones">
+                                     <a type="button" class="btn btn-info">Modificar</a>
+                                     <a href="/biblioteca-2017v2/controladorAutor?metodo=eliminar&id=<c:out value="${autor.autor_id}"/>" type="button" class="btn btn-danger">Eliminar</a>
+                        </display:column>
+                   </display:table>
 
-                        <c:forEach var="u" items="${q1.rows}">
-                        <tr>
-                            <td><c:out value="${u.autor_id}"/></td>
-                            <td><c:out value="${u.autor_nombre}"/></td>
-                            <td><c:out value="${u.autor_descripcion}"/></td>
-                            <td><a type="button" class="btn btn-info">Modificar</a>
-                                <a href="/biblioteca-2017/controladorAutor?metodo=eliminar&id=${u.autor_id}" type="button" class="btn btn-danger">Eliminar</a></td>
-                        </tr>
-                        </c:forEach>
-                      </tbody>
-                    </table>
+                    
+                  
+                    
+                    -->
                   </div>
                 </div>
               </div>

@@ -21,7 +21,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-              <form method="post" action="/biblioteca-2017/autenticarServlet">
+              <form method="post" action="/biblioteca-2017v2/autenticarServlet">
               <h1>Login</h1>
               <div>
                 <input type="text" id="user" name="user" class="form-control" placeholder="Username" required="" />

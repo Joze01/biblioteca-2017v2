@@ -44,7 +44,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" novalidate class="form-horizontal form-label-left" action="/biblioteca-2017/controladorEditorial" method="post">
+                    <form id="demo-form2" novalidate class="form-horizontal form-label-left" action="/biblioteca-2017v2/controladorEditorial" method="post">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre: <span class="required">*</span>
@@ -103,7 +103,7 @@
                             <td><c:out value="${u.editorial_id}"/></td>
                             <td><c:out value="${u.editorial_nombre}"/></td>
                             <td><c:out value="${u.editorial_descripcion}"/></td>
-                            <td><a type="button" class="btn btn-info">Modificar</a><a href="/biblioteca-2017/controladorEditorial?metodo=eliminar&id=${u.editorial_id}" type="button" class="btn btn-danger">Eliminar</a></td>
+                            <td><a type="button" class="btn btn-info">Modificar</a><a href="/biblioteca-2017v2/controladorEditorial?metodo=eliminar&id=${u.editorial_id}" type="button" class="btn btn-danger">Eliminar</a></td>
                         </tr>
                         </c:forEach>
                       </tbody>

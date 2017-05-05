@@ -40,7 +40,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/biblioteca-2017/controladorConfiguracion" method="post">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/biblioteca-2017v2/controladorConfiguracion" method="post">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="docente">Maximo prestamos docentes <span class="required">*</span>
@@ -124,7 +124,7 @@
                             <td><c:out value="${u.configuracion_docente}"/></td>
                             <td><c:out value="${u.configuracion_mora}"/></td>
                             <td><c:out value="${u.estado}"/></td>
-                            <td><a type="button" class="btn btn-info">Modificar</a><a href="/biblioteca-2017/controladorConfiguracion?metodo=eliminar&id=${u.configuracion_id}" type="button" class="btn btn-danger">Eliminar</a></td>
+                            <td><a type="button" class="btn btn-info">Modificar</a><a href="/biblioteca-2017v2/controladorConfiguracion?metodo=eliminar&id=${u.configuracion_id}" type="button" class="btn btn-danger">Eliminar</a></td>
                         </tr>
                         </c:forEach>
                       </tbody>
