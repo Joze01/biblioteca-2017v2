@@ -19,7 +19,6 @@ public class material {
         boolean resultado=false;
         
         public boolean nuevoMaterial(materialBean mat) throws SQLException{
-        int resu =0;
         sql="INSERT INTO material"
                 + "(material_isbn, material_nombre, material_descripcion, id_autor, "
                 + "material_anio, material_edicion, id_editorial, material_paginas, "
@@ -34,6 +33,7 @@ public class material {
                 + "'"+mat.getPaginas()+"',"+mat.getTipo()+","+mat.getEjemplares()+")";
         con = new Conexion();
         resultado=con.setQuery(sql);
+        con.cerrarConexion();
         return resultado;
         }
         

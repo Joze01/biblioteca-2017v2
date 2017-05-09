@@ -2529,7 +2529,14 @@ if (typeof NProgress != 'undefined') {
 				  };
 				}();
 
-				$('#datatable').dataTable();
+				$('#datatable').dataTable({
+                                    paginate: false,
+                                    "language": {
+                                                    "zeroRecords": "No se han encontrado registros",
+                                                    "infoEmpty": "No Hay Datos",
+                                                    "infoFiltered": "(Filtrado _MAX_ total records)"
+                                                }
+                                });
 
 				$('#datatable-keytable').DataTable({
 				  keys: true

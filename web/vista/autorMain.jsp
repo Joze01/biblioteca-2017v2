@@ -83,7 +83,7 @@
                     <br />
                     <sql:query var="q1" dataSource="jdbc/mysql" sql="SELECT * FROM autor" /> 
                         
-                    <display:table  id="autor" htmlId="datatable" class="table table-striped table-bordered" pagesize="3" name="${q1.rows}" export="true" >
+                    <display:table  id="autor" htmlId="datatable" class="table table-striped table-bordered" pagesize="10" name="${q1.rows}" export="true" >
                         <display:column title="Codigo" property="autor_id" sortable="true"/>
                         <display:column title="Nombre" property="autor_nombre" sortable="true"/>
                         <display:column title="Descripcion" property="autor_descripcion" sortable="true"/>

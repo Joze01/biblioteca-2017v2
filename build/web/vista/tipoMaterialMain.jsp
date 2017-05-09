@@ -3,12 +3,14 @@
     Created on : 19-abr-2017, 1:17:23
     Author     : Jose
 --%>
-<%@page session="true" language="java" import="java.util.*" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
+<%@page session="true" language="java" import="java.util.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -82,29 +84,22 @@
                   <div class="x_content">
                     <br />
                     
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Nombre</th>
-                          <th>Descripcion</th>
-                          <th>Opciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>
+                 
                         <sql:query var="q1" dataSource="jdbc/mysql" sql="SELECT * FROM tipomaterial" /> 
 
-                        <c:forEach var="u" items="${q1.rows}">
-                        <tr>
-                            <td><c:out value="${u.TipoMaterial_id}"/></td>
-                            <td><c:out value="${u.TipoMaterial_nombre}"/></td>
-                            <td><c:out value="${u.TipoMaterial_descripcion}"/></td>
-                            <td><a type="button" class="btn btn-info">Modificar</a>
-                                <a href="/biblioteca-2017v2/controladorTipoMateriales?metodo=eliminar&id=${u.TipoMaterial_id}" type="button" class="btn btn-danger">Eliminar</a></td>
-                        </tr>
-                        </c:forEach>
-                      </tbody>
-                    </table>
+                        <display:table  id="tipomaterial" htmlId="datatable" class="table table-striped table-bordered" pagesize="10" name="${q1.rows}" export="true" >
+                        <display:column title="Codigo" property="TipoMaterial_id" sortable="true"/>
+                        <display:column title="Nombre" property="TipoMaterial_nombre" sortable="true"/>
+                        <display:column title="Descripcion" property="TipoMaterial_descripcion" sortable="true"/>
+                        <display:column title="Funciones">
+                            <a type="button" class="btn btn-info">Modificar</a>
+                            <a href="/biblioteca-2017v2/controladorTipoMateriales?metodo=eliminar&id=${tipomaterial.TipoMaterial_id}" type="button" class="btn btn-danger">Eliminar</a></td>
+                        
+                        </display:column>
+                   </display:table>
+                       
+                        
+                   
                   </div>
                 </div>
               </div>

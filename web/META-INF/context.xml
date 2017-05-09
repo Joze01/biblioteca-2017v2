@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<Context crossContext="true" debug="5" path="/biblioteca-2017v2v2" reloadable="true">
-<Logger className="org.apache.catalina.logger.FileLogger" prefix="localhost_." suffix=".txt" timestamp="true"/>
-<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" name="jdbc/mysql" password="" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/biblio_donbosco" username="root"/>
+<Context crossContext="true" debug="5" path="/biblioteca-2017v2" reloadable="true">
+  <Logger className="org.apache.catalina.logger.FileLogger" prefix="localhost_." suffix=".txt" timestamp="true"/>
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" name="jdbc/mysql" password="" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/biblio_donbosco" username="root"/>
 </Context>

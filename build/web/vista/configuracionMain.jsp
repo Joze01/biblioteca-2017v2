@@ -7,6 +7,8 @@
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
+
 <%@page session="true" language="java" import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -103,32 +105,24 @@
                   <div class="x_content">
                     <br />
                     
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Prestamos Docentes</th>
-                          <th>Prestamos Alumnos</th>
-                          <th>Mora</th>
-                          <th>estado</th>
-                          <th>Opciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                       <sql:query var="q1" dataSource="jdbc/mysql" sql="SELECT * FROM configuracion" /> 
+                    <sql:query var="q1" dataSource="jdbc/mysql" sql="SELECT * FROM configuracion" /> 
 
-                        <c:forEach var="u" items="${q1.rows}">
-                        <tr>
-                            <td><c:out value="${u.configuracion_id}"/></td>
-                            <td><c:out value="${u.configuracion_alumno}"/></td>
-                            <td><c:out value="${u.configuracion_docente}"/></td>
-                            <td><c:out value="${u.configuracion_mora}"/></td>
-                            <td><c:out value="${u.estado}"/></td>
-                            <td><a type="button" class="btn btn-info">Modificar</a><a href="/biblioteca-2017v2/controladorConfiguracion?metodo=eliminar&id=${u.configuracion_id}" type="button" class="btn btn-danger">Eliminar</a></td>
-                        </tr>
-                        </c:forEach>
-                      </tbody>
-                    </table>
+                       
+                    <display:table  id="configuracion" htmlId="datatable" class="table table-striped table-bordered" pagesize="10" name="${q1.rows}" export="true" >
+                        <display:column title="Codigo" property="configuracion_id" sortable="true"/>
+                        <display:column title="Prestamos Alumno" property="configuracion_alumno" sortable="true"/>
+                        <display:column title="Prestamos Docente" property="configuracion_docente" sortable="true"/>
+                        <display:column title="Mora" property="configuracion_mora" sortable="true"/>
+                        <display:column title="Estado" property="estado" sortable="true"/>
+                        
+                        <display:column title="Opciones">
+                                     <a type="button" class="btn btn-info">Modificar</a>
+                                     <a href="/biblioteca-2017v2/controladorAutor?metodo=eliminar&id=<c:out value="${configuracion.configuracion_id}"/>" type="button" class="btn btn-danger">Eliminar</a>
+                        </display:column>
+                   </display:table>
+                   
+                       
+                       
                   </div>
                 </div>
               </div>

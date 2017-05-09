@@ -8,6 +8,7 @@
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 
 <%@page session="true" language="java" import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -116,21 +117,27 @@
                   <div class="x_content">
                     <br />
                     
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Nombre</th>
-                          <th>Apellido</th>
-                          <th>Usuario</th>
-                          <th>Password</th>
-                          <th>Tipo Usuario</th>
-                          <th>Opciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                         <sql:query var="q1" dataSource="jdbc/mysql" sql="SELECT * FROM usuario inner join tipousuario on tipousuario.tipousuario_id=usuario.id_tipousuario" /> 
+                          <sql:query var="q1" dataSource="jdbc/mysql" sql="SELECT * FROM usuario inner join tipousuario on tipousuario.tipousuario_id=usuario.id_tipousuario" /> 
 
+                    <display:table  id="tipomaterial" htmlId="datatable" class="table table-striped table-bordered" pagesize="10" name="${q1.rows}" export="true" >
+                        <display:column title="Codigo" property="TipoMaterial_id" sortable="true"/>
+                        <display:column title="Nombre" property="TipoMaterial_nombre" sortable="true"/>
+                        <display:column title="Apellido" property="TipoMaterial_descripcion" sortable="true"/>
+                        <display:column title="Carnet" property="TipoMaterial_descripcion" sortable="true"/>
+                        <display:column title="Password" property="TipoMaterial_descripcion" sortable="true"/>
+                        
+                        
+                        
+                        <display:column title="Funciones">
+                            <a type="button" class="btn btn-info">Modificar</a>
+                            <a href="/biblioteca-2017v2/controladorTipoMateriales?metodo=eliminar&id=${tipomaterial.TipoMaterial_id}" type="button" class="btn btn-danger">Eliminar</a></td>
+                        
+                        </display:column>
+                   </display:table>
+                       
+                    
+                    
+                   
                         <c:forEach var="u" items="${q1.rows}">
                         <tr>
                             <td><c:out value="${u.usuario_id}"/></td>
@@ -143,8 +150,6 @@
                         </tr>
                         </c:forEach>
 
-                      </tbody>
-                    </table>
                   </div>
                 </div>
               </div>

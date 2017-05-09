@@ -44,7 +44,15 @@ public class controladorMaterial extends HttpServlet {
             boolean resultado=false;
             
             String metodo = request.getParameter("metodo");
+            
+            
+            out.println(metodo);
+            
             if(metodo.equals("insertar")){
+                
+            out.println("IF");
+                
+                
             mat_b.setIsbn(request.getParameter("isbn"));
             mat_b.setNombre(request.getParameter("nombre"));
             mat_b.setDescripcion(request.getParameter("descripcion"));
@@ -53,8 +61,10 @@ public class controladorMaterial extends HttpServlet {
             mat_b.setEdicion(Integer.parseInt(request.getParameter("edicion")));
             mat_b.setEditorial(Integer.parseInt(request.getParameter("editorial")));
             mat_b.setPaginas(request.getParameter("pagina"));
-            mat_b.setTipo(Integer.parseInt(request.getParameter("tipo")));
-            mat_b.setEjemplares(Integer.parseInt(request.getParameter("ejemplares")));
+            mat_b.setTipo(Integer.parseInt(request.getParameter("tipomaterial")));
+            mat_b.setEjemplares(Integer.parseInt(request.getParameter("ejemplar")));
+            
+            
             
             resultado=mat.nuevoMaterial(mat_b);
                 if(resultado){

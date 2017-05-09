@@ -3,15 +3,15 @@ package org.apache.jsp.vista;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.*;
 
-public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class editorialMain_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
 
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_display_column_title_sortable_property_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_display_column_title;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_display_table_pagesize_name_id_htmlId_export_class;
@@ -24,7 +24,6 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
-    _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_display_column_title_sortable_property_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_display_column_title = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_display_table_pagesize_name_id_htmlId_export_class = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
@@ -32,7 +31,6 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspDestroy() {
-    _jspx_tagPool_c_out_value_nobody.release();
     _jspx_tagPool_display_column_title_sortable_property_nobody.release();
     _jspx_tagPool_display_column_title.release();
     _jspx_tagPool_display_table_pagesize_name_id_htmlId_export_class.release();
@@ -71,6 +69,19 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      sv.edu.sv.bean.editorialBean editorial_b = null;
+      synchronized (request) {
+        editorial_b = (sv.edu.sv.bean.editorialBean) _jspx_page_context.getAttribute("editorial_b", PageContext.REQUEST_SCOPE);
+        if (editorial_b == null){
+          editorial_b = new sv.edu.sv.bean.editorialBean();
+          _jspx_page_context.setAttribute("editorial_b", editorial_b, PageContext.REQUEST_SCOPE);
+        }
+      }
+      out.write('\n');
+      org.apache.jasper.runtime.JspRuntimeLibrary.introspect(_jspx_page_context.findAttribute("editorial_b"), request);
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    ");
@@ -79,7 +90,7 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "assent/header.jsp", out, false);
       out.write("\n");
-      out.write("        <title>MANTENIMINETO AUTORES</title>\n");
+      out.write("        <title>MANTENIMINETO EDITORIAL</title>\n");
       out.write("    </head>\n");
       out.write("    ");
       out.write("\n");
@@ -99,7 +110,7 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<div class=\"col-md-12 col-sm-12 col-xs-12\">\n");
       out.write("                <div class=\"x_panel\">\n");
       out.write("                  <div class=\"x_title\">\n");
-      out.write("                    <h2>Configuracion Autores</h2>\n");
+      out.write("                    <h2>Configuracion Editorial</h2>\n");
       out.write("                    <ul class=\"nav navbar-right panel_toolbox\">\n");
       out.write("                      \n");
       out.write("                      \n");
@@ -108,28 +119,28 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                  </div>\n");
       out.write("                  <div class=\"x_content\">\n");
       out.write("                    <br />\n");
-      out.write("                    <form id=\"demo-form2\" data-parsley-validate class=\"form-horizontal form-label-left\" action=\"/biblioteca-2017v2/controladorAutor\" method=\"post\">\n");
+      out.write("                    <form id=\"demo-form2\" novalidate class=\"form-horizontal form-label-left\" action=\"/biblioteca-2017v2/controladorEditorial\" method=\"post\">\n");
       out.write("\n");
       out.write("                      <div class=\"form-group\">\n");
-      out.write("                        <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"nombre\">Nombre <span class=\"required\">*</span>\n");
+      out.write("                        <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"nombre\">Nombre: <span class=\"required\">*</span>\n");
       out.write("                        </label>\n");
       out.write("                        <div class=\"col-md-6 col-sm-6 col-xs-12\">\n");
-      out.write("                            <input type=\"text\" name=\"nombre\" id=\"nombre\" required=\"required\"  class=\"form-control col-md-7 col-xs-12\">\n");
+      out.write("                            <input data-validate-length-range=\"6\" data-validate-words=\"2\" type=\"text\" name=\"nombre\" id=\"nombre\" required=\"required\"  class=\"form-control col-md-7 col-xs-12\">\n");
       out.write("                        </div>\n");
       out.write("                      </div>\n");
       out.write("                      <div class=\"form-group\">\n");
       out.write("                        <label class=\"control-label col-md-3 col-sm-3 col-xs-12\"  for=\"descripcion\">Descripcion <span class=\"required\">*</span>\n");
       out.write("                        </label>\n");
       out.write("                        <div class=\"col-md-6 col-sm-6 col-xs-12\">\n");
-      out.write("                          <input type=\"text\" name=\"descripcion\" id=\"descripcion\" required=\"required\" class=\"form-control col-md-7 col-xs-12\">\n");
+      out.write("                          <input type=\"text\" name=\"descripcion\" id=\"last-name\" ata-validate-length-range=\"3\" required=\"required\" class=\"form-control col-md-7 col-xs-12\">\n");
       out.write("                        </div>\n");
       out.write("                      </div>\n");
-      out.write("                            \n");
-      out.write("                        <input type=\"hidden\" name=\"metodo\" value=\"insertar\">\n");
+      out.write("                           <input type=\"hidden\" value=\"insertar\" name=\"metodo\"/>  \n");
+      out.write("                      \n");
       out.write("                      <div class=\"ln_solid\"></div>\n");
       out.write("                      <div class=\"form-group\">\n");
       out.write("                        <div class=\"col-md-6 col-sm-6 col-xs-12 col-md-offset-3\">\n");
-      out.write("                          <button type=\"submit\" class=\"btn btn-success\">Guardar</button>\n");
+      out.write("                          <input type=\"submit\" value=\"Guardar\" class=\"btn btn-success\"/>\n");
       out.write("                        </div>\n");
       out.write("                      </div>\n");
       out.write("\n");
@@ -149,17 +160,22 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                  </div>\n");
       out.write("                  <div class=\"x_content\">\n");
       out.write("                    <br />\n");
-      out.write("                    ");
+      out.write("                    \n");
+      out.write("                 \n");
+      out.write("                        ");
       if (_jspx_meth_sql_query_0(_jspx_page_context))
         return;
       out.write(" \n");
+      out.write("\n");
       out.write("                        \n");
-      out.write("                    ");
+      out.write("                        \n");
+      out.write("                        \n");
+      out.write("                       ");
       //  display:table
       org.displaytag.tags.TableTag _jspx_th_display_table_0 = (org.displaytag.tags.TableTag) _jspx_tagPool_display_table_pagesize_name_id_htmlId_export_class.get(org.displaytag.tags.TableTag.class);
       _jspx_th_display_table_0.setPageContext(_jspx_page_context);
       _jspx_th_display_table_0.setParent(null);
-      _jspx_th_display_table_0.setUid("autor");
+      _jspx_th_display_table_0.setUid("editorial");
       _jspx_th_display_table_0.setHtmlId("datatable");
       _jspx_th_display_table_0.setClass("table table-striped table-bordered");
       _jspx_th_display_table_0.setPagesize(10);
@@ -204,7 +220,9 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
       }
       _jspx_tagPool_display_table_pagesize_name_id_htmlId_export_class.reuse(_jspx_th_display_table_0);
       out.write("\n");
-      out.write("                       \n");
+      out.write("                        \n");
+      out.write("                            \n");
+      out.write("                      >\n");
       out.write("                  </div>\n");
       out.write("                </div>\n");
       out.write("              </div>\n");
@@ -257,7 +275,7 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_sql_query_0.setParent(null);
     _jspx_th_sql_query_0.setVar("q1");
     _jspx_th_sql_query_0.setDataSource(new String("jdbc/mysql"));
-    _jspx_th_sql_query_0.setSql("SELECT * FROM autor");
+    _jspx_th_sql_query_0.setSql("SELECT * FROM editorial");
     int[] _jspx_push_body_count_sql_query_0 = new int[] { 0 };
     try {
       int _jspx_eval_sql_query_0 = _jspx_th_sql_query_0.doStartTag();
@@ -284,7 +302,7 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_display_column_0.setPageContext(_jspx_page_context);
     _jspx_th_display_column_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_table_0);
     _jspx_th_display_column_0.setTitle("Codigo");
-    _jspx_th_display_column_0.setProperty("autor_id");
+    _jspx_th_display_column_0.setProperty("editorial_id");
     _jspx_th_display_column_0.setSortable(true);
     int _jspx_eval_display_column_0 = _jspx_th_display_column_0.doStartTag();
     if (_jspx_th_display_column_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -304,7 +322,7 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_display_column_1.setPageContext(_jspx_page_context);
     _jspx_th_display_column_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_table_0);
     _jspx_th_display_column_1.setTitle("Nombre");
-    _jspx_th_display_column_1.setProperty("autor_nombre");
+    _jspx_th_display_column_1.setProperty("editorial_nombre");
     _jspx_th_display_column_1.setSortable(true);
     int _jspx_eval_display_column_1 = _jspx_th_display_column_1.doStartTag();
     if (_jspx_th_display_column_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -324,7 +342,7 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_display_column_2.setPageContext(_jspx_page_context);
     _jspx_th_display_column_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_table_0);
     _jspx_th_display_column_2.setTitle("Descripcion");
-    _jspx_th_display_column_2.setProperty("autor_descripcion");
+    _jspx_th_display_column_2.setProperty("editorial_descripcion");
     _jspx_th_display_column_2.setSortable(true);
     int _jspx_eval_display_column_2 = _jspx_th_display_column_2.doStartTag();
     if (_jspx_th_display_column_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -353,11 +371,11 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
       }
       do {
         out.write("\n");
-        out.write("                                     <a type=\"button\" class=\"btn btn-info\">Modificar</a>\n");
-        out.write("                                     <a href=\"/biblioteca-2017v2/controladorAutor?metodo=eliminar&id=");
-        if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_display_column_3, _jspx_page_context))
-          return true;
+        out.write("                                        <a type=\"button\" class=\"btn btn-info\">Modificar</a>\n");
+        out.write("                                        <a href=\"/biblioteca-2017v2/controladorEditorial?metodo=eliminar&id=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${editorial.editorial_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("\" type=\"button\" class=\"btn btn-danger\">Eliminar</a>\n");
+        out.write("                            \n");
         out.write("                        ");
         int evalDoAfterBody = _jspx_th_display_column_3.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -371,24 +389,6 @@ public final class autorMain_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _jspx_tagPool_display_column_title.reuse(_jspx_th_display_column_3);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_out_0(javax.servlet.jsp.tagext.JspTag _jspx_th_display_column_3, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:out
-    org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_0 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
-    _jspx_th_c_out_0.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_column_3);
-    _jspx_th_c_out_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${autor.autor_id}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    int _jspx_eval_c_out_0 = _jspx_th_c_out_0.doStartTag();
-    if (_jspx_th_c_out_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
-      return true;
-    }
-    _jspx_tagPool_c_out_value_nobody.reuse(_jspx_th_c_out_0);
     return false;
   }
 }
