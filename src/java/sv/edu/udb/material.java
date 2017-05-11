@@ -44,13 +44,15 @@ public class material {
                 + "material_descripcion='"+mat.getDescripcion()+"',"
                 + "id_autor="+mat.getAutor()+","
                 + "material_anio="+mat.getAnio()+","
-                + "material_edicion=="+mat.getEdicion()+","
+                + "material_edicion="+mat.getEdicion()+","
                 + "id_editorial="+mat.getEditorial()+","
                 + "material_paginas='"+mat.getPaginas()+"',"
                 + "id_TipoMaterial="+mat.getTipo()+","
-                + "ejemplares=[value-12] WHERE material_id="+mat.getId();
+                + "ejemplares="+mat.getEjemplares()+" WHERE material_id="+mat.getId();
         con = new Conexion();
+            System.out.println(sql);
         resultado = con.setQuery(sql);
+        con.cerrarConexion();
         return resultado;
         }
         

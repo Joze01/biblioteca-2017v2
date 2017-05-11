@@ -3,6 +3,16 @@
     Created on : 19-abr-2017, 1:17:23
     Author     : Jose
 --%>
+<jsp:useBean id="buscador_b" scope="request" class="sv.edu.sv.bean.buscadorBean">
+ <jsp:setProperty name="buscador_b" property="*"/>
+</jsp:useBean>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@taglib uri="http://displaytag.sf.net" prefix="display" %>
+
 <%@page session="true" language="java" import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -29,39 +39,34 @@
                   <div class="x_title">
                     <h2>Busqueda de materiales</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                      
-                      
+
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/biblioteca-2017v2/EditorialServlet" method="post">
-
+                    <form class="form-horizontal form-label-left " action="" method="get">
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="nombre" id="first-name" required="required" value="<% request.getParameter("nombre"); %>" class="form-control col-md-7 col-xs-12">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Buscar: </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="text" name="busqueda" id="autocomplete-custom-append" class="form-control col-md-10"/>
                         </div>
                       </div>
+                        <br>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="descripcion">Descripcion <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="descripcion" id="last-name" value="<% request.getParameter("descripcion"); %>" required="required" class="form-control col-md-7 col-xs-12">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Parametro</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select name="parametro" class="form-control">
+                              <option value="1">Titulo</option>
+                              <option value="2">Autor</option>
+                          </select>
                         </div>
-                      </div>
-                          <input type="hidden" value="<% request.getParameter("id"); %>">
-                      
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-success">Guardar</button>
-                        </div>
-                      </div>
-
+                      </div>  
+                        
+                        <button type="submit" class="btn btn-success"> BUSCAR </button>
+                        
                     </form>
+                    
                   </div>
                 </div>
                 
@@ -77,20 +82,29 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Nombre</th>
-                          <th>Descripcion</th>
-                          <th>Opciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                       
-                      </tbody>
-                    </table>
+                      <c:if test = "${buscador_b.getParametro()=='1'}" >
+                          <sql:query var="q3" dataSource="jdbc/mysql" sql="select * from material inner join autor on autor.autor_id=material.id_autor inner join editorial on material.id_editorial = editorial.editorial_id inner join tipomaterial on material.id_TipoMaterial = tipomaterial.TipoMaterial_id where material.material_nombre='${buscador_b.getBusqueda()}'" /> 
+                      </c:if>
+                  
+                     <c:if test = "${buscador_b.getParametro()=='2'}" >
+                          <sql:query var="q3" dataSource="jdbc/mysql" sql="select * from material inner join autor on autor.autor_id=material.id_autor inner join editorial on material.id_editorial = editorial.editorial_id inner join tipomaterial on material.id_TipoMaterial = tipomaterial.TipoMaterial_id where autor.autor_nombre='${buscador_b.getBusqueda()}'" /> 
+                      </c:if>
+                
+                    <display:table  id="material"  htmlId="datatable-responsive" class="table table-striped" pagesize="10" name="${q3.rows}" export="true" >
+                       <display:column title="#" property="material_id" sortable="true"/>
+                        <display:column title="ISBN" property="material_isbn" sortable="true"/>
+                        <display:column title="Nombre" property="material_nombre" sortable="true"/>
+                        <display:column title="Descripcion" property="material_descripcion" sortable="true"/>
+                        <display:column title="Autor" property="autor_nombre" sortable="true"/>
+                        <display:column title="Año" property="material_anio" sortable="true"/>
+                        <display:column title="Ejemplares" property="ejemplares" sortable="true"/>
+                        <display:column title="Edicion" property="material_edicion" sortable="true"/>
+                        <display:column title="Editorial" property="editorial_nombre" sortable="true"/>
+                        <display:column title="# Paginas/Tracks" property="material_paginas" sortable="true"/>
+                        <display:column title="Tipo de material" property="TipoMaterial_nombre" sortable="true"/>
+                    </display:table>
+          
+                   
                   </div>
                 </div>
               </div>

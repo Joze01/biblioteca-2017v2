@@ -45,7 +45,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form class="form-horizontal form-label-left " action="" method="get">
+                    <form class="form-horizontal form-label-left " action="" method="post">
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Buscar: </label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
@@ -73,7 +73,7 @@
                 
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Datos</h2>
+                    <h2>Material</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       
                       
@@ -102,6 +102,9 @@
                         <display:column title="Editorial" property="editorial_nombre" sortable="true"/>
                         <display:column title="# Paginas/Tracks" property="material_paginas" sortable="true"/>
                         <display:column title="Tipo de material" property="TipoMaterial_nombre" sortable="true"/>
+                        <display:column title="Funciones">
+                            <a href="" type="button" class="btn btn-info">Seleccionar</a>
+                        </display:column>
                     </display:table>
           
                    

@@ -8,6 +8,7 @@
 <jsp:useBean id="material_b" scope="request" class="sv.edu.sv.bean.materialBean">
  <jsp:setProperty name="material_b" property="*"/>
 </jsp:useBean>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -31,7 +32,7 @@
 <html>
     <%-- header --%>
     <head>
-        <jsp:include page="assent/header.jsp"/>
+        <jsp:include page="../assent/header_1.jsp"/>
         <title>MANTENIMINETO MATERIAL</title>
     </head>
     <%-- /header --%>
@@ -40,7 +41,7 @@
     <div class="container body">
       <div class="main_container">
           
-         <jsp:include page="assent/menuAdmin.jsp"/>
+         <jsp:include page="../assent/menuAdmin.jsp"/>
     <div class="right_col" role="main" style="min-height: 335px;">
   
     <%-- CONTENIDO --%>
@@ -87,7 +88,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="isbn">ISBN<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="isbn" name="isbn" required="required" class="form-control col-md-7 col-xs-12">
+                              <input type="text" id="isbn" name="isbn" value="${material_b.getIsbn()}" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div>
                           
@@ -95,7 +96,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre"> Nombre <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="Nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12">
+                              <input type="text" id="Nombre" name="nombre" value="${material_b.getNombre()}" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div>
                           
@@ -103,7 +104,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descripcion"> Descripcion <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="descripcion" name="descripcion" required="required" class="form-control col-md-7 col-xs-12">
+                              <input type="text" id="descripcion" name="descripcion" value="${material_b.getDescripcion()}" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div>
                          
@@ -111,7 +112,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="year"> Año <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="number" max="2017" min="100" id="anio" name="anio" required="required" class="form-control col-md-7 col-xs-12">
+                              <input type="number" max="2017" min="100" id="anio" name="anio" value="${material_b.getAnio()}" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div>
                           
@@ -119,10 +120,11 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="edicion"> Edicion <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="number" max="1000" min="0" id="edicion" name="edicion" required="required" class="form-control col-md-7 col-xs-12">
+                              <input type="number" max="1000" min="0" id="edicion" name="edicion" value="${material_b.getEdicion()}" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div>
-                          <input type="hidden" name="metodo" value="insertar"/>
+                            <input type="hidden" name="id" value="${material_b.getId()}" />  
+                          <input type="hidden" name="metodo" value="modificar"/>
                           <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="editorial"> Editorial <span class="required">*</span>
                             </label>
@@ -138,10 +140,10 @@
                                
                                
                           <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ejemplar"> Ejemplares <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ejemplares"> Ejemplares <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="number" min="1" id="ejemplar" name="ejemplar" required="required" class="form-control col-md-7 col-xs-12">
+                                <input type="number" min="1" id="ejemplares" value="${material_b.getEjemplares()}" name="ejemplar" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div> 
                                     
@@ -149,7 +151,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pagina"> Paginas/Pistas <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="number" min="1" id="descripcion" name="pagina" required="required" class="form-control col-md-7 col-xs-12">
+                                <input type="number" min="1" id="descripcion" name="paginas" value="${material_b.getPaginas()}" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div> 
                                     
@@ -227,7 +229,7 @@
       </div>
     <%-- footer --%>
     <footer>
-    <jsp:include page="assent/footer.jsp"/> 
+    <jsp:include page="../assent/footer_1.jsp"/> 
     </footer>
     <%-- /footer --%>
 </html>

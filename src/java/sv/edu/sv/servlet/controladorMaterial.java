@@ -60,7 +60,7 @@ public class controladorMaterial extends HttpServlet {
             mat_b.setAnio(Integer.parseInt(request.getParameter("anio")));
             mat_b.setEdicion(Integer.parseInt(request.getParameter("edicion")));
             mat_b.setEditorial(Integer.parseInt(request.getParameter("editorial")));
-            mat_b.setPaginas(request.getParameter("pagina"));
+            mat_b.setPaginas(request.getParameter("paginas"));
             mat_b.setTipo(Integer.parseInt(request.getParameter("tipomaterial")));
             mat_b.setEjemplares(Integer.parseInt(request.getParameter("ejemplar")));
             
@@ -75,17 +75,17 @@ public class controladorMaterial extends HttpServlet {
             }
             
             if(metodo.equals("modificar")){
-                mat_b.setId(Integer.parseInt(request.getParameter("id")));
-                mat_b.setIsbn(request.getParameter("isbn"));
+            mat_b.setId(Integer.parseInt(request.getParameter("id")));
+            mat_b.setIsbn(request.getParameter("isbn"));
             mat_b.setNombre(request.getParameter("nombre"));
             mat_b.setDescripcion(request.getParameter("descripcion"));
             mat_b.setAutor(Integer.parseInt(request.getParameter("autor")));
             mat_b.setAnio(Integer.parseInt(request.getParameter("anio")));
             mat_b.setEdicion(Integer.parseInt(request.getParameter("edicion")));
             mat_b.setEditorial(Integer.parseInt(request.getParameter("editorial")));
-            mat_b.setPaginas(request.getParameter("pagina"));
-            mat_b.setTipo(Integer.parseInt(request.getParameter("tipo")));
-            mat_b.setEjemplares(Integer.parseInt(request.getParameter("ejemplares")));
+            mat_b.setPaginas(request.getParameter("paginas"));
+            mat_b.setTipo(Integer.parseInt(request.getParameter("tipomaterial")));
+            mat_b.setEjemplares(Integer.parseInt(request.getParameter("ejemplar")));
             
             resultado=mat.modificar(mat_b);
                     if(resultado){

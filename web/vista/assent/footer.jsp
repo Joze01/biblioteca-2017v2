@@ -18,6 +18,7 @@
     <!-- Custom Theme Scripts -->
     <script src="../respaldo/js/custom.js"></script>
     
+    
         <!-- PNotify -->
     <script src="../vendors/pnotify/dist/pnotify.js"></script>
     <script src="../vendors/pnotify/dist/pnotify.buttons.js"></script>
@@ -42,6 +43,8 @@
     <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
     
+    <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     
     
     <% 

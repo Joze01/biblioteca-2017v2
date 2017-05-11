@@ -3,6 +3,7 @@
     Created on : 19-abr-2017, 1:17:23
     Author     : Jose
 --%>
+
 <jsp:useBean id="editorial_b" scope="request" class="sv.edu.sv.bean.editorialBean">
  <jsp:setProperty name="editorial_b" property="*"/>
 </jsp:useBean>
@@ -11,9 +12,7 @@
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
-<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
-
-
+<%@taglib uri="http://displaytag.sf.net" prefix="display" %>
 <%@page session="true" language="java" import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -76,14 +75,10 @@
                     </form>
                   </div>
                 </div>
-                
-                
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Datos</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                      
-                      
                     </ul>
                     <div class="clearfix"></div>
                   </div>
@@ -93,9 +88,6 @@
                  
                         <sql:query var="q1" dataSource="jdbc/mysql" sql="SELECT * FROM editorial" /> 
 
-                        
-                        
-                        
                        <display:table  id="editorial" htmlId="datatable" class="table table-striped table-bordered" pagesize="10" name="${q1.rows}" export="true" >
                         <display:column title="Codigo" property="editorial_id" sortable="true"/>
                         <display:column title="Nombre" property="editorial_nombre" sortable="true"/>

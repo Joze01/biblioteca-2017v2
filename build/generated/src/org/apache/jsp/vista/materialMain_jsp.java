@@ -70,6 +70,19 @@ public final class materialMain_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write('\n');
       out.write("\n");
       out.write("--%>\n");
+      sv.edu.sv.bean.materialBean material_b = null;
+      synchronized (request) {
+        material_b = (sv.edu.sv.bean.materialBean) _jspx_page_context.getAttribute("material_b", PageContext.REQUEST_SCOPE);
+        if (material_b == null){
+          material_b = new sv.edu.sv.bean.materialBean();
+          _jspx_page_context.setAttribute("material_b", material_b, PageContext.REQUEST_SCOPE);
+          out.write('\n');
+          out.write(' ');
+          org.apache.jasper.runtime.JspRuntimeLibrary.introspect(_jspx_page_context.findAttribute("material_b"), request);
+          out.write('\n');
+        }
+      }
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -117,7 +130,7 @@ public final class materialMain_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                  </div>\n");
       out.write("                  <div class=\"x_content\">\n");
       out.write("                    <br />\n");
-      out.write("                        <form class=\"form-horizontal form-label-left \" method=\"get\" action=\"/biblioteca-2017v2/controladorMaterial\" >\n");
+      out.write("                        <form class=\"form-horizontal form-label-left \" method=\"post\" action=\"/biblioteca-2017v2/controladorMaterial\" >\n");
       out.write("      <div id=\"wizard\" class=\"form_wizard wizard_horizontal\">\n");
       out.write("       \n");
       out.write("\n");
@@ -171,7 +184,7 @@ public final class materialMain_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                            <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"year\"> Año <span class=\"required\">*</span>\n");
       out.write("                            </label>\n");
       out.write("                            <div class=\"col-md-6 col-sm-6 col-xs-12\">\n");
-      out.write("                              <input type=\"number\" max=\"2017\" min=\"100\" id=\"descripcion\" name=\"anio\" required=\"required\" class=\"form-control col-md-7 col-xs-12\">\n");
+      out.write("                              <input type=\"number\" max=\"2017\" min=\"100\" id=\"anio\" name=\"anio\" required=\"required\" class=\"form-control col-md-7 col-xs-12\">\n");
       out.write("                            </div>\n");
       out.write("                          </div>\n");
       out.write("                          \n");
@@ -199,12 +212,21 @@ public final class materialMain_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("                            </select>\n");
       out.write("                            </div>\n");
       out.write("                          </div>\n");
-      out.write("                                    \n");
+      out.write("                               \n");
+      out.write("                               \n");
       out.write("                          <div class=\"form-group\">\n");
-      out.write("                            <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"pagina\"> Paginas/Pistas <span class=\"required\">*</span>\n");
+      out.write("                            <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"ejemplar\"> Ejemplares <span class=\"required\">*</span>\n");
       out.write("                            </label>\n");
       out.write("                            <div class=\"col-md-6 col-sm-6 col-xs-12\">\n");
-      out.write("                              <input type=\"number\" min=\"1\" id=\"descripcion\" name=\"pagina\" required=\"required\" class=\"form-control col-md-7 col-xs-12\">\n");
+      out.write("                              <input type=\"number\" min=\"1\" id=\"ejemplar\" name=\"ejemplar\" required=\"required\" class=\"form-control col-md-7 col-xs-12\">\n");
+      out.write("                            </div>\n");
+      out.write("                          </div> \n");
+      out.write("                                    \n");
+      out.write("                          <div class=\"form-group\">\n");
+      out.write("                            <label class=\"control-label col-md-3 col-sm-3 col-xs-12\" for=\"paginas\"> Paginas/Pistas <span class=\"required\">*</span>\n");
+      out.write("                            </label>\n");
+      out.write("                            <div class=\"col-md-6 col-sm-6 col-xs-12\">\n");
+      out.write("                              <input type=\"number\" min=\"1\" id=\"descripcion\" name=\"paginas\" required=\"required\" class=\"form-control col-md-7 col-xs-12\">\n");
       out.write("                            </div>\n");
       out.write("                          </div> \n");
       out.write("                                    \n");
@@ -280,13 +302,13 @@ public final class materialMain_jsp extends org.apache.jasper.runtime.HttpJspBas
         return;
       out.write(" \n");
       out.write("\n");
-      out.write("                     ");
+      out.write("                       ");
       //  display:table
       org.displaytag.tags.TableTag _jspx_th_display_table_0 = (org.displaytag.tags.TableTag) _jspx_tagPool_display_table_pagesize_name_id_htmlId_export_class.get(org.displaytag.tags.TableTag.class);
       _jspx_th_display_table_0.setPageContext(_jspx_page_context);
       _jspx_th_display_table_0.setParent(null);
       _jspx_th_display_table_0.setUid("material");
-      _jspx_th_display_table_0.setHtmlId("datatable");
+      _jspx_th_display_table_0.setHtmlId("datatable-responsive");
       _jspx_th_display_table_0.setClass("table table-striped table-bordered");
       _jspx_th_display_table_0.setPagesize(10);
       _jspx_th_display_table_0.setName((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${q2.rows}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
@@ -346,6 +368,10 @@ public final class materialMain_jsp extends org.apache.jasper.runtime.HttpJspBas
           out.write("\n");
           out.write("                        ");
           if (_jspx_meth_display_column_11((javax.servlet.jsp.tagext.JspTag) _jspx_th_display_table_0, _jspx_page_context))
+            return;
+          out.write("\n");
+          out.write("                        ");
+          if (_jspx_meth_display_column_12((javax.servlet.jsp.tagext.JspTag) _jspx_th_display_table_0, _jspx_page_context))
             return;
           out.write("\n");
           out.write("                   ");
@@ -917,8 +943,8 @@ public final class materialMain_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.displaytag.tags.ColumnTag _jspx_th_display_column_6 = (org.displaytag.tags.ColumnTag) _jspx_tagPool_display_column_title_sortable_property_nobody.get(org.displaytag.tags.ColumnTag.class);
     _jspx_th_display_column_6.setPageContext(_jspx_page_context);
     _jspx_th_display_column_6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_table_0);
-    _jspx_th_display_column_6.setTitle("Edicion");
-    _jspx_th_display_column_6.setProperty("material_edicion");
+    _jspx_th_display_column_6.setTitle("Ejemplares");
+    _jspx_th_display_column_6.setProperty("ejemplares");
     _jspx_th_display_column_6.setSortable(true);
     int _jspx_eval_display_column_6 = _jspx_th_display_column_6.doStartTag();
     if (_jspx_th_display_column_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -937,8 +963,8 @@ public final class materialMain_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.displaytag.tags.ColumnTag _jspx_th_display_column_7 = (org.displaytag.tags.ColumnTag) _jspx_tagPool_display_column_title_sortable_property_nobody.get(org.displaytag.tags.ColumnTag.class);
     _jspx_th_display_column_7.setPageContext(_jspx_page_context);
     _jspx_th_display_column_7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_table_0);
-    _jspx_th_display_column_7.setTitle("Fecha Registro");
-    _jspx_th_display_column_7.setProperty("material_fechaRegistro");
+    _jspx_th_display_column_7.setTitle("Edicion");
+    _jspx_th_display_column_7.setProperty("material_edicion");
     _jspx_th_display_column_7.setSortable(true);
     int _jspx_eval_display_column_7 = _jspx_th_display_column_7.doStartTag();
     if (_jspx_th_display_column_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -957,8 +983,8 @@ public final class materialMain_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.displaytag.tags.ColumnTag _jspx_th_display_column_8 = (org.displaytag.tags.ColumnTag) _jspx_tagPool_display_column_title_sortable_property_nobody.get(org.displaytag.tags.ColumnTag.class);
     _jspx_th_display_column_8.setPageContext(_jspx_page_context);
     _jspx_th_display_column_8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_table_0);
-    _jspx_th_display_column_8.setTitle("Editorial");
-    _jspx_th_display_column_8.setProperty("editorial_nombre");
+    _jspx_th_display_column_8.setTitle("Fecha Registro");
+    _jspx_th_display_column_8.setProperty("material_fechaRegistro");
     _jspx_th_display_column_8.setSortable(true);
     int _jspx_eval_display_column_8 = _jspx_th_display_column_8.doStartTag();
     if (_jspx_th_display_column_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -977,8 +1003,8 @@ public final class materialMain_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.displaytag.tags.ColumnTag _jspx_th_display_column_9 = (org.displaytag.tags.ColumnTag) _jspx_tagPool_display_column_title_sortable_property_nobody.get(org.displaytag.tags.ColumnTag.class);
     _jspx_th_display_column_9.setPageContext(_jspx_page_context);
     _jspx_th_display_column_9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_table_0);
-    _jspx_th_display_column_9.setTitle("# Paginas/Tracks");
-    _jspx_th_display_column_9.setProperty("material_paginas");
+    _jspx_th_display_column_9.setTitle("Editorial");
+    _jspx_th_display_column_9.setProperty("editorial_nombre");
     _jspx_th_display_column_9.setSortable(true);
     int _jspx_eval_display_column_9 = _jspx_th_display_column_9.doStartTag();
     if (_jspx_th_display_column_9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -997,8 +1023,8 @@ public final class materialMain_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.displaytag.tags.ColumnTag _jspx_th_display_column_10 = (org.displaytag.tags.ColumnTag) _jspx_tagPool_display_column_title_sortable_property_nobody.get(org.displaytag.tags.ColumnTag.class);
     _jspx_th_display_column_10.setPageContext(_jspx_page_context);
     _jspx_th_display_column_10.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_table_0);
-    _jspx_th_display_column_10.setTitle("Tipo de material");
-    _jspx_th_display_column_10.setProperty("TipoMaterial_nombre");
+    _jspx_th_display_column_10.setTitle("# Paginas/Tracks");
+    _jspx_th_display_column_10.setProperty("material_paginas");
     _jspx_th_display_column_10.setSortable(true);
     int _jspx_eval_display_column_10 = _jspx_th_display_column_10.doStartTag();
     if (_jspx_th_display_column_10.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -1014,48 +1040,90 @@ public final class materialMain_jsp extends org.apache.jasper.runtime.HttpJspBas
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  display:column
-    org.displaytag.tags.ColumnTag _jspx_th_display_column_11 = (org.displaytag.tags.ColumnTag) _jspx_tagPool_display_column_title.get(org.displaytag.tags.ColumnTag.class);
+    org.displaytag.tags.ColumnTag _jspx_th_display_column_11 = (org.displaytag.tags.ColumnTag) _jspx_tagPool_display_column_title_sortable_property_nobody.get(org.displaytag.tags.ColumnTag.class);
     _jspx_th_display_column_11.setPageContext(_jspx_page_context);
     _jspx_th_display_column_11.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_table_0);
-    _jspx_th_display_column_11.setTitle("Opciones");
+    _jspx_th_display_column_11.setTitle("Tipo de material");
+    _jspx_th_display_column_11.setProperty("TipoMaterial_nombre");
+    _jspx_th_display_column_11.setSortable(true);
     int _jspx_eval_display_column_11 = _jspx_th_display_column_11.doStartTag();
-    if (_jspx_eval_display_column_11 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-      if (_jspx_eval_display_column_11 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
-        out = _jspx_page_context.pushBody();
-        _jspx_th_display_column_11.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
-        _jspx_th_display_column_11.doInitBody();
-      }
-      do {
-        out.write("\n");
-        out.write("                                     <a type=\"button\" class=\"btn btn-info\">Modificar</a>\n");
-        out.write("                                     <a href=\"/biblioteca-2017v2/controladorAutor?metodo=eliminar&id=");
-        if (_jspx_meth_c_out_7((javax.servlet.jsp.tagext.JspTag) _jspx_th_display_column_11, _jspx_page_context))
-          return true;
-        out.write("\" type=\"button\" class=\"btn btn-danger\">Eliminar</a>\n");
-        out.write("                        ");
-        int evalDoAfterBody = _jspx_th_display_column_11.doAfterBody();
-        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-          break;
-      } while (true);
-      if (_jspx_eval_display_column_11 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE)
-        out = _jspx_page_context.popBody();
-    }
     if (_jspx_th_display_column_11.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _jspx_tagPool_display_column_title.reuse(_jspx_th_display_column_11);
+      _jspx_tagPool_display_column_title_sortable_property_nobody.reuse(_jspx_th_display_column_11);
       return true;
     }
-    _jspx_tagPool_display_column_title.reuse(_jspx_th_display_column_11);
+    _jspx_tagPool_display_column_title_sortable_property_nobody.reuse(_jspx_th_display_column_11);
     return false;
   }
 
-  private boolean _jspx_meth_c_out_7(javax.servlet.jsp.tagext.JspTag _jspx_th_display_column_11, PageContext _jspx_page_context)
+  private boolean _jspx_meth_display_column_12(javax.servlet.jsp.tagext.JspTag _jspx_th_display_table_0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  display:column
+    org.displaytag.tags.ColumnTag _jspx_th_display_column_12 = (org.displaytag.tags.ColumnTag) _jspx_tagPool_display_column_title.get(org.displaytag.tags.ColumnTag.class);
+    _jspx_th_display_column_12.setPageContext(_jspx_page_context);
+    _jspx_th_display_column_12.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_table_0);
+    _jspx_th_display_column_12.setTitle("Opciones");
+    int _jspx_eval_display_column_12 = _jspx_th_display_column_12.doStartTag();
+    if (_jspx_eval_display_column_12 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+      if (_jspx_eval_display_column_12 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE) {
+        out = _jspx_page_context.pushBody();
+        _jspx_th_display_column_12.setBodyContent((javax.servlet.jsp.tagext.BodyContent) out);
+        _jspx_th_display_column_12.doInitBody();
+      }
+      do {
+        out.write("\n");
+        out.write("                                     <a type=\"button\" href=\"editform/materialMain.jsp?isbn=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${material.material_isbn}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&ejemplares=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${material.ejemplares}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&tipo=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${material.TipoMaterial_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&paginas=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${material.material_paginas}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&editorial=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${material.editorial_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&fechaRegistro=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${material.material_fechaRegistro}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&edicion=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${material.material_edicion}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&anio=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${material.material_anio}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&descripcion=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${material.material_descripcion}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&nombre=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${material.material_nombre}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&id=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${material.material_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("\" class=\"btn btn-info\">Modificar</a>\n");
+        out.write("                                     <a href=\"/biblioteca-2017v2/controladorMaterial?metodo=eliminar&id=");
+        if (_jspx_meth_c_out_7((javax.servlet.jsp.tagext.JspTag) _jspx_th_display_column_12, _jspx_page_context))
+          return true;
+        out.write("\" type=\"button\" class=\"btn btn-danger\">Eliminar</a>\n");
+        out.write("                        ");
+        int evalDoAfterBody = _jspx_th_display_column_12.doAfterBody();
+        if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+          break;
+      } while (true);
+      if (_jspx_eval_display_column_12 != javax.servlet.jsp.tagext.Tag.EVAL_BODY_INCLUDE)
+        out = _jspx_page_context.popBody();
+    }
+    if (_jspx_th_display_column_12.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_display_column_title.reuse(_jspx_th_display_column_12);
+      return true;
+    }
+    _jspx_tagPool_display_column_title.reuse(_jspx_th_display_column_12);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_out_7(javax.servlet.jsp.tagext.JspTag _jspx_th_display_column_12, PageContext _jspx_page_context)
           throws Throwable {
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:out
     org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_out_7 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _jspx_tagPool_c_out_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
     _jspx_th_c_out_7.setPageContext(_jspx_page_context);
-    _jspx_th_c_out_7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_column_11);
+    _jspx_th_c_out_7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_display_column_12);
     _jspx_th_c_out_7.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${material.material_id}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     int _jspx_eval_c_out_7 = _jspx_th_c_out_7.doStartTag();
     if (_jspx_th_c_out_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

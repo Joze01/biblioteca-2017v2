@@ -8,6 +8,7 @@
 <jsp:useBean id="material_b" scope="request" class="sv.edu.sv.bean.materialBean">
  <jsp:setProperty name="material_b" property="*"/>
 </jsp:useBean>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -136,10 +137,10 @@
                           </div> 
                                     
                           <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pagina"> Paginas/Pistas <span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="paginas"> Paginas/Pistas <span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="number" min="1" id="descripcion" name="pagina" required="required" class="form-control col-md-7 col-xs-12">
+                              <input type="number" min="1" id="descripcion" name="paginas" required="required" class="form-control col-md-7 col-xs-12">
                             </div>
                           </div> 
                                     
@@ -211,20 +212,21 @@
                     <br />
                        <sql:query var="q2" dataSource="jdbc/mysql" sql="select * from material inner join autor on autor.autor_id=material.id_autor inner join editorial on material.id_editorial = editorial.editorial_id inner join tipomaterial on material.id_TipoMaterial = tipomaterial.TipoMaterial_id" /> 
 
-                     <display:table  id="material" htmlId="datatable" class="table table-striped table-bordered" pagesize="10" name="${q2.rows}" export="true" >
+                       <display:table  id="material"  htmlId="datatable-responsive" class="table table-striped table-bordered" pagesize="10" name="${q2.rows}" export="true" >
                         <display:column title="#" property="material_id" sortable="true"/>
                         <display:column title="ISBN" property="material_isbn" sortable="true"/>
                         <display:column title="Nombre" property="material_nombre" sortable="true"/>
                         <display:column title="Descripcion" property="material_descripcion" sortable="true"/>
                         <display:column title="Autor" property="autor_nombre" sortable="true"/>
                         <display:column title="Año" property="material_anio" sortable="true"/>
+                        <display:column title="Ejemplares" property="ejemplares" sortable="true"/>
                         <display:column title="Edicion" property="material_edicion" sortable="true"/>
                         <display:column title="Fecha Registro" property="material_fechaRegistro" sortable="true"/>
                         <display:column title="Editorial" property="editorial_nombre" sortable="true"/>
                         <display:column title="# Paginas/Tracks" property="material_paginas" sortable="true"/>
                         <display:column title="Tipo de material" property="TipoMaterial_nombre" sortable="true"/>
                         <display:column title="Opciones">
-                                     <a type="button" class="btn btn-info">Modificar</a>
+                                     <a type="button" href="editform/materialMain.jsp?isbn=${material.material_isbn}&ejemplares=${material.ejemplares}&tipo=${material.TipoMaterial_id}&paginas=${material.material_paginas}&editorial=${material.editorial_id}&fechaRegistro=${material.material_fechaRegistro}&edicion=${material.material_edicion}&anio=${material.material_anio}&descripcion=${material.material_descripcion}&nombre=${material.material_nombre}&id=${material.material_id}" class="btn btn-info">Modificar</a>
                                      <a href="/biblioteca-2017v2/controladorMaterial?metodo=eliminar&id=<c:out value="${material.material_id}"/>" type="button" class="btn btn-danger">Eliminar</a>
                         </display:column>
                    </display:table>
