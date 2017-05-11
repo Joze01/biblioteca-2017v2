@@ -5,7 +5,9 @@
     Author     : Jose
 --%>
 --%>
-
+<jsp:useBean id="material_b" scope="request" class="sv.edu.sv.bean.materialBean">
+ <jsp:setProperty name="material_b" property="*"/>
+</jsp:useBean>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -223,7 +225,7 @@
                         <display:column title="Tipo de material" property="TipoMaterial_nombre" sortable="true"/>
                         <display:column title="Opciones">
                                      <a type="button" class="btn btn-info">Modificar</a>
-                                     <a href="/biblioteca-2017v2/controladorAutor?metodo=eliminar&id=<c:out value="${material.material_id}"/>" type="button" class="btn btn-danger">Eliminar</a>
+                                     <a href="/biblioteca-2017v2/controladorMaterial?metodo=eliminar&id=<c:out value="${material.material_id}"/>" type="button" class="btn btn-danger">Eliminar</a>
                         </display:column>
                    </display:table>
                     

@@ -64,6 +64,19 @@ public final class configuracionMain_jsp extends org.apache.jasper.runtime.HttpJ
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write('\n');
+      sv.edu.sv.bean.configuracionBean configuracion_b = null;
+      synchronized (session) {
+        configuracion_b = (sv.edu.sv.bean.configuracionBean) _jspx_page_context.getAttribute("configuracion_b", PageContext.SESSION_SCOPE);
+        if (configuracion_b == null){
+          configuracion_b = new sv.edu.sv.bean.configuracionBean();
+          _jspx_page_context.setAttribute("configuracion_b", configuracion_b, PageContext.SESSION_SCOPE);
+          out.write('\n');
+          out.write(' ');
+          org.apache.jasper.runtime.JspRuntimeLibrary.introspect(_jspx_page_context.findAttribute("configuracion_b"), request);
+          out.write('\n');
+        }
+      }
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -192,7 +205,7 @@ public final class configuracionMain_jsp extends org.apache.jasper.runtime.HttpJ
       _jspx_th_display_table_0.setUid("configuracion");
       _jspx_th_display_table_0.setHtmlId("datatable");
       _jspx_th_display_table_0.setClass("table table-striped table-bordered");
-      _jspx_th_display_table_0.setPagesize(3);
+      _jspx_th_display_table_0.setPagesize(10);
       _jspx_th_display_table_0.setName((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${q1.rows}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
       _jspx_th_display_table_0.setExport(true);
       int _jspx_eval_display_table_0 = _jspx_th_display_table_0.doStartTag();
@@ -440,8 +453,18 @@ public final class configuracionMain_jsp extends org.apache.jasper.runtime.HttpJ
       }
       do {
         out.write("\n");
-        out.write("                                     <a type=\"button\" class=\"btn btn-info\">Modificar</a>\n");
-        out.write("                                     <a href=\"/biblioteca-2017v2/controladorAutor?metodo=eliminar&id=");
+        out.write("                            <a type=\"button\" href=\"editform/configuracionMain.jsp?id=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${configuracion.configuracion_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&docente=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${configuracion.configuracion_docente}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&alumno=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${configuracion.configuracion_alumno}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&mora=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${configuracion.mora}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&estado=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${configuracion.estado}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("\" class=\"btn btn-info\">Modificar</a>\n");
+        out.write("                            <a href=\"/biblioteca-2017v2/controladorConfiguracion?metodo=eliminar&id=");
         if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_display_column_5, _jspx_page_context))
           return true;
         out.write("\" type=\"button\" class=\"btn btn-danger\">Eliminar</a>\n");

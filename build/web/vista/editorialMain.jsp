@@ -3,6 +3,9 @@
     Created on : 19-abr-2017, 1:17:23
     Author     : Jose
 --%>
+<jsp:useBean id="editorial_b" scope="request" class="sv.edu.sv.bean.editorialBean">
+ <jsp:setProperty name="editorial_b" property="*"/>
+</jsp:useBean>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
@@ -14,8 +17,6 @@
 <%@page session="true" language="java" import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<jsp:useBean class="sv.edu.sv.bean.editorialBean" scope="request" id="editorial_b" />
-<jsp:setProperty name="editorial_b" property="*"/>
 
 <!DOCTYPE html>
 <html>
@@ -100,7 +101,7 @@
                         <display:column title="Nombre" property="editorial_nombre" sortable="true"/>
                         <display:column title="Descripcion" property="editorial_descripcion" sortable="true"/>
                         <display:column title="Funciones">
-                                        <a type="button" class="btn btn-info">Modificar</a>
+                                        <a type="button" href="editform/editorialMain.jsp?id=${editorial.editorial_id}&nombre=${editorial.editorial_nombre}&descripcion=${editorial.editorial_descripcion}" class="btn btn-info">Modificar</a>
                                         <a href="/biblioteca-2017v2/controladorEditorial?metodo=eliminar&id=${editorial.editorial_id}" type="button" class="btn btn-danger">Eliminar</a>
                             
                         </display:column>

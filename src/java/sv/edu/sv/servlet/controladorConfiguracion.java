@@ -61,16 +61,16 @@ public class controladorConfiguracion extends HttpServlet {
             }
             
             if(metodo.equals("modificar")){
-               config.setId(0);
+               config.setId(Integer.parseInt(request.getParameter("id")));
                 config.setAlumno(Integer.parseInt(request.getParameter("alumno")));
                config.setDocente(Integer.parseInt(request.getParameter("docente")));
                config.setMora(Double.parseDouble(request.getParameter("mora")));
                config.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
-               resultado=confiS.nuevaConfiguracion(config);
+               resultado=confiS.modificarConfiguracion(config);
                if(resultado){
-                response.sendRedirect("vista/configuracionMain.jsp?exito=1&mensaje=Insertado Correctamente");
+                response.sendRedirect("vista/configuracionMain.jsp?exito=1&mensaje=Modificado Correctamente");
                 }else{
-                response.sendRedirect("vista/configuracionMain.jsp?exito=0&mensaje=Error al Insertar");
+                response.sendRedirect("vista/configuracionMain.jsp?exito=0&mensaje=Error al Modificar");
                 }
             }
             

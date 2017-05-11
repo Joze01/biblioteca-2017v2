@@ -72,6 +72,14 @@
             + "styling: 'bootstrap3'"
             + " });"
             + "</script>");
+        }else if(exito.equals("2")){
+            out.println("<script> "
+            + "new PNotify({ "
+            + "title: 'Error', "
+            + "text: '"+mensaje+"',"
+            + "styling: 'bootstrap3'"
+            + " });"
+            + "</script>");
         }
     %> 
     

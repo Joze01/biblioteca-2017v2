@@ -47,7 +47,7 @@ public class configuracion {
         
         sql="UPDATE configuracion SET configuracion_alumno="+config.getAlumno()+",configuracion_docente="+config.getDocente()+",configuracion_mora="+config.getMora()+", estado="+valorestado+" where configuracion_id= "+config.getId();
         con = new Conexion();
-        con.setQuery(sql);
+        resultado=con.setQuery(sql);
         con.cerrarConexion();
         return resultado;
     }

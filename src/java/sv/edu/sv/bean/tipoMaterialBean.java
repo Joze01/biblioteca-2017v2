@@ -55,4 +55,13 @@ public class tipoMaterialBean {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    
+    
+        public boolean isEmpty(){
+        if(this.getId()==0){
+        return true;
+        }
+        return false;
+
+    }
 }

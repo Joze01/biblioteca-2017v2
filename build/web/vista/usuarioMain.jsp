@@ -4,6 +4,11 @@
     Author     : Jose
 --%>
 
+
+<jsp:useBean id="usuario_b" scope="request" class="sv.edu.sv.bean.usuarioBean">
+ <jsp:setProperty name="usuario_b" property="*"/>
+</jsp:useBean>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -12,9 +17,6 @@
 
 <%@page session="true" language="java" import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="usuarioBean" scope="session" class="sv.edu.sv.bean.usuarioBean"/>
-<jsp:setProperty name="usuarioBean" property="*"/>
-
 
 <!DOCTYPE html>
 <html>
@@ -119,36 +121,23 @@
                     
                           <sql:query var="q1" dataSource="jdbc/mysql" sql="SELECT * FROM usuario inner join tipousuario on tipousuario.tipousuario_id=usuario.id_tipousuario" /> 
 
-                    <display:table  id="tipomaterial" htmlId="datatable" class="table table-striped table-bordered" pagesize="10" name="${q1.rows}" export="true" >
-                        <display:column title="Codigo" property="TipoMaterial_id" sortable="true"/>
-                        <display:column title="Nombre" property="TipoMaterial_nombre" sortable="true"/>
-                        <display:column title="Apellido" property="TipoMaterial_descripcion" sortable="true"/>
-                        <display:column title="Carnet" property="TipoMaterial_descripcion" sortable="true"/>
-                        <display:column title="Password" property="TipoMaterial_descripcion" sortable="true"/>
-                        
-                        
-                        
+                    <display:table  id="usuario" htmlId="datatable" class="table table-striped table-bordered" pagesize="10" name="${q1.rows}" export="true" >
+                        <display:column title="Codigo" property="usuario_id" sortable="true"/>
+                        <display:column title="Nombre" property="usuario_nombre" sortable="true"/>
+                        <display:column title="Apellido" property="usuario_apellido" sortable="true"/>
+                        <display:column title="Carnet" property="usuario_carnet" sortable="true"/>
+                        <display:column title="Tipo Usuario" property="tipousuario_nombre" sortable="true"/>
+                        <display:column title="Password" property="usuario_password" sortable="true"/>
                         <display:column title="Funciones">
                             <a type="button" class="btn btn-info">Modificar</a>
-                            <a href="/biblioteca-2017v2/controladorTipoMateriales?metodo=eliminar&id=${tipomaterial.TipoMaterial_id}" type="button" class="btn btn-danger">Eliminar</a></td>
+                            <a href="/biblioteca-2017v2/controladorUsuario?metodo=eliminar&id=${usuario.usuario_id}" type="button" class="btn btn-danger">Eliminar</a></td>
                         
                         </display:column>
                    </display:table>
                        
                     
                     
-                   
-                        <c:forEach var="u" items="${q1.rows}">
-                        <tr>
-                            <td><c:out value="${u.usuario_id}"/></td>
-                            <td><c:out value="${u.usuario_nombre}"/></td>
-                            <td><c:out value="${u.usuario_apellido}"/></td>
-                            <td><c:out value="${u.usuario_carnet}"/></td>
-                            <td><c:out value="${u.usuario_password}"/></td>
-                            <td><c:out value="${u.tipousuario_nombre}"/></td>
-                            <td><a type="button" class="btn btn-info">Modificar</a><a href="/biblioteca-2017v2/controladorUsuario?metodo=eliminar&id=${u.usuario_id}" type="button" class="btn btn-danger">Eliminar</a></td>
-                        </tr>
-                        </c:forEach>
+
 
                   </div>
                 </div>

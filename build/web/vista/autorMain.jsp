@@ -3,6 +3,11 @@
     Created on : 19-abr-2017, 1:17:23
     Author     : Jose
 --%>
+
+<jsp:useBean id="autor_b" scope="request" class="sv.edu.sv.bean.autorBean">
+ <jsp:setProperty name="autor_b" property="*"/>
+</jsp:useBean>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -74,8 +79,6 @@
                   <div class="x_title">
                     <h2>Datos</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                      
-                      
                     </ul>
                     <div class="clearfix"></div>
                   </div>
@@ -88,7 +91,7 @@
                         <display:column title="Nombre" property="autor_nombre" sortable="true"/>
                         <display:column title="Descripcion" property="autor_descripcion" sortable="true"/>
                         <display:column title="Funciones">
-                                     <a type="button" class="btn btn-info">Modificar</a>
+                                     <a type="button" href="editform/autorMain.jsp?id=<c:out value="${autor.autor_id}"/>&nombre=<c:out value="${autor.autor_nombre}&descripcion=${autor.autor_descripcion}"/>" class="btn btn-info">Modificar</a>
                                      <a href="/biblioteca-2017v2/controladorAutor?metodo=eliminar&id=<c:out value="${autor.autor_id}"/>" type="button" class="btn btn-danger">Eliminar</a>
                         </display:column>
                    </display:table>

@@ -57,7 +57,7 @@ public class material {
         public boolean eliminar(int id) throws SQLException{
         sql="DELETE FROM material WHERE material_id="+id;
         con = new Conexion();
-        con.setQuery(sql);
+        resultado=con.setQuery(sql);
         return resultado;
         }
         

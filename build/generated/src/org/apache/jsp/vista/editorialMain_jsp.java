@@ -61,25 +61,30 @@ public final class editorialMain_jsp extends org.apache.jasper.runtime.HttpJspBa
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
+      out.write('\n');
       sv.edu.sv.bean.editorialBean editorial_b = null;
       synchronized (request) {
         editorial_b = (sv.edu.sv.bean.editorialBean) _jspx_page_context.getAttribute("editorial_b", PageContext.REQUEST_SCOPE);
         if (editorial_b == null){
           editorial_b = new sv.edu.sv.bean.editorialBean();
           _jspx_page_context.setAttribute("editorial_b", editorial_b, PageContext.REQUEST_SCOPE);
+          out.write('\n');
+          out.write(' ');
+          org.apache.jasper.runtime.JspRuntimeLibrary.introspect(_jspx_page_context.findAttribute("editorial_b"), request);
+          out.write('\n');
         }
       }
-      out.write('\n');
-      org.apache.jasper.runtime.JspRuntimeLibrary.introspect(_jspx_page_context.findAttribute("editorial_b"), request);
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
@@ -140,7 +145,7 @@ public final class editorialMain_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                      <div class=\"ln_solid\"></div>\n");
       out.write("                      <div class=\"form-group\">\n");
       out.write("                        <div class=\"col-md-6 col-sm-6 col-xs-12 col-md-offset-3\">\n");
-      out.write("                          <input type=\"submit\" value=\"Guardar\" class=\"btn btn-success\"/>\n");
+      out.write("                            <button type=\"submit\"  class=\"btn btn-success\"/>Guardar</button>\n");
       out.write("                        </div>\n");
       out.write("                      </div>\n");
       out.write("\n");
@@ -222,7 +227,7 @@ public final class editorialMain_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\n");
       out.write("                        \n");
       out.write("                            \n");
-      out.write("                      >\n");
+      out.write("                      \n");
       out.write("                  </div>\n");
       out.write("                </div>\n");
       out.write("              </div>\n");
@@ -371,7 +376,13 @@ public final class editorialMain_jsp extends org.apache.jasper.runtime.HttpJspBa
       }
       do {
         out.write("\n");
-        out.write("                                        <a type=\"button\" class=\"btn btn-info\">Modificar</a>\n");
+        out.write("                                        <a type=\"button\" href=\"editform/editorialMain.jsp?id=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${editorial.editorial_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&nombre=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${editorial.editorial_nombre}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("&descripcion=");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${editorial.editorial_descripcion}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+        out.write("\" class=\"btn btn-info\">Modificar</a>\n");
         out.write("                                        <a href=\"/biblioteca-2017v2/controladorEditorial?metodo=eliminar&id=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${editorial.editorial_id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("\" type=\"button\" class=\"btn btn-danger\">Eliminar</a>\n");

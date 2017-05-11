@@ -56,4 +56,13 @@ public class editorialBean {
         this.id = id;
     }
     
+    public boolean isEmpty(){
+        if(this.getId()==0){
+        return true;
+        }
+        return false;
+
+    }
+    
+    
 }

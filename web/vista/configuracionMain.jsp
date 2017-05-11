@@ -3,6 +3,9 @@
     Created on : 19-abr-2017, 1:17:23
     Author     : Jose
 --%>
+<jsp:useBean id="configuracion_b" scope="request" class="sv.edu.sv.bean.configuracionBean">
+ <jsp:setProperty name="configuracion_b" property="*"/>
+</jsp:useBean>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -116,8 +119,8 @@
                         <display:column title="Estado" property="estado" sortable="true"/>
                         
                         <display:column title="Opciones">
-                                     <a type="button" class="btn btn-info">Modificar</a>
-                                     <a href="/biblioteca-2017v2/controladorAutor?metodo=eliminar&id=<c:out value="${configuracion.configuracion_id}"/>" type="button" class="btn btn-danger">Eliminar</a>
+                            <a type="button" href="editform/configuracionMain.jsp?id=${configuracion.configuracion_id}&docente=${configuracion.configuracion_docente}&alumno=${configuracion.configuracion_alumno}&mora=${configuracion.configuracion_mora}&estado=${configuracion.estado}" class="btn btn-info">Modificar</a>
+                            <a href="/biblioteca-2017v2/controladorConfiguracion?metodo=eliminar&id=<c:out value="${configuracion.configuracion_id}"/>" type="button" class="btn btn-danger">Eliminar</a>
                         </display:column>
                    </display:table>
                    

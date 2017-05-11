@@ -89,4 +89,11 @@ public class configuracionBean {
     public void setId(int id) {
         this.id = id;
     }
+    
+    public boolean isEmpty(){
+        if(this.getId()==0){
+            return true;
+        }
+            return false;
+    }
 }

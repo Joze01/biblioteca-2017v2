@@ -30,8 +30,9 @@ public class autor {
     public boolean modificarAutor(autorBean autor) throws SQLException{
         resultado=false;
         sql="UPDATE autor SET autor_nombre='"+autor.getNombre()+"',autor_descripcion='"+autor.getDescripcion()+"' WHERE autor_id="+autor.getId();
+        System.out.println(sql);
         con = new Conexion();
-        con.setQuery(sql);
+        resultado=con.setQuery(sql);
         con.cerrarConexion();
         return resultado;
     }

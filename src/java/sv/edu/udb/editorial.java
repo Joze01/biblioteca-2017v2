@@ -29,7 +29,7 @@ public class editorial {
         resultado=false;
         sql="UPDATE editorial SET editorial_nombre='"+editorial.getNombre()+"',editorial_descripcion='"+editorial.getDescripcion()+"' WHERE editorial_id="+editorial.getId()+"";
         con = new Conexion();
-        con.setQuery(sql);
+        resultado=con.setQuery(sql);
         con.cerrarConexion();
         return resultado;
     }

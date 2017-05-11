@@ -3,7 +3,9 @@
     Created on : 19-abr-2017, 1:17:23
     Author     : Jose
 --%>
-
+<jsp:useBean id="tipoMaterialBean_b" scope="request" class="sv.edu.sv.bean.tipoMaterialBean">
+ <jsp:setProperty name="tipoMaterialBean_b" property="*"/>
+</jsp:useBean>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -92,7 +94,7 @@
                         <display:column title="Nombre" property="TipoMaterial_nombre" sortable="true"/>
                         <display:column title="Descripcion" property="TipoMaterial_descripcion" sortable="true"/>
                         <display:column title="Funciones">
-                            <a type="button" class="btn btn-info">Modificar</a>
+                            <a type="button" href="editform/tipoMaterialMain.jsp?id=${tipomaterial.TipoMaterial_id}&nombre=${tipomaterial.TipoMaterial_nombre}&descripcion=${tipomaterial.TipoMaterial_descripcion}" class="btn btn-info">Modificar</a>
                             <a href="/biblioteca-2017v2/controladorTipoMateriales?metodo=eliminar&id=${tipomaterial.TipoMaterial_id}" type="button" class="btn btn-danger">Eliminar</a></td>
                         
                         </display:column>
