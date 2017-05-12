@@ -67,7 +67,8 @@ public class prestamoBean {
         this.usuario = usuario;
     }
     private int material;
+    private int usuario;
     private String fechaDevolucion;
     private String fechaActual;
-    private int usuario;
+    
 }

@@ -37,79 +37,12 @@
     <%-- CONTENIDO --%>
 
 <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Configuracion de Usuarios</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      
-                        
-                      
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/biblioteca-2017v2/controladorUsuario" method="post">
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="nombre">Nombre <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="nombre" id="" required="required"  class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="apellido">apellido <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="apellido" id="last-name"  required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="usuario">usuario <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="carnet" id="last-name"   required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="tipo">Tipo Usuario <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <select id="tipo" name="tipousuario" class="form-control" >
-                               <sql:query var="q2" dataSource="jdbc/mysql" sql="SELECT * FROM tipousuario" /> 
-
-                                <c:forEach var="tipo" items="${q2.rows}">
-                                    <option value="<c:out value="${tipo.tipousuario_id}"/>"><c:out value="${tipo.tipousuario_nombre}"/></option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"   for="password">Password <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="password" name="password" id="last-name"   required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>  
-                        
-                        <input type="hidden" value="insertar" name="metodo"/>  
-                        
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-success">Guardar</button>
-                        </div>
-                      </div>
-
-                    </form>
-                  </div>
-                </div>
+                
                 
                 
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Datos</h2>
+                    <h2>Seleccionar Usuario</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       
                       
@@ -129,7 +62,7 @@
                         <display:column title="Tipo Usuario" property="tipousuario_nombre" sortable="true"/>
                         <display:column title="Password" property="usuario_password" sortable="true"/>
                         <display:column title="Funciones">
-                            <a type="button" class="btn btn-info">Seleccionar</a>
+                            <a type="button" href="/controladorPrestamo" class="btn btn-info">Seleccionar</a>
                          
                         </display:column>
                    </display:table>

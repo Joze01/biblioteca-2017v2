@@ -5,10 +5,28 @@
  */
 package sv.edu.udb;
 
+import java.sql.*;
+import sv.edu.sv.bean.configuracionBean;
+import sv.edu.sv.bean.prestamoBean;
 /**
  *
  * @author Jose
  */
 public class prestamo {
+    Conexion con;
+        String sql;
+        ResultSet rs;
+        boolean resultado=false;
+    
+        public boolean nuevoPrestamo(){
+            
+        
+        
+        
+        return resultado;
+        }
+    
+    
+    
     
 }

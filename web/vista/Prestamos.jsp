@@ -103,7 +103,7 @@
                         <display:column title="# Paginas/Tracks" property="material_paginas" sortable="true"/>
                         <display:column title="Tipo de material" property="TipoMaterial_nombre" sortable="true"/>
                         <display:column title="Funciones">
-                            <a href="" type="button" class="btn btn-info">Seleccionar</a>
+                            <a href="publicPrestamos.jsp?material=${material.material_id}" type="button" class="btn btn-info">Seleccionar</a>
                         </display:column>
                     </display:table>
           
