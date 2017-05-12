@@ -19,7 +19,8 @@
 <html>
     <%-- header --%>
     <head>
-        <jsp:include page="assent/header.jsp"/>
+        <jsp:include flush="true" page="assent/sesionScript.jsp" />
+        <jsp:include flush="true" page="assent/header.jsp"/>
         <title>MANTENIMINETO AUTORES</title>
     </head>
     <%-- /header --%>

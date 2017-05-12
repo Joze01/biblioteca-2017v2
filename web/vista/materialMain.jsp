@@ -4,10 +4,11 @@
     Created on : 19-abr-2017, 1:17:23
     Author     : Jose
 --%>
---%>
+
 <jsp:useBean id="material_b" scope="request" class="sv.edu.sv.bean.materialBean">
  <jsp:setProperty name="material_b" property="*"/>
 </jsp:useBean>
+
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>

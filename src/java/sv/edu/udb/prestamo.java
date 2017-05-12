@@ -19,8 +19,10 @@ public class prestamo {
         boolean resultado=false;
     
         public boolean nuevoPrestamo(){
-            
-        
+            int prestamosDocentes;
+            int prestamosAlumnos;
+            sql="select * from configuracion where where estado=1";
+            con.setRs(sql);
         
         
         return resultado;

@@ -3,7 +3,11 @@
     Created on : 19-abr-2017, 1:38:56
     Author     : Jose
 --%>
+<%
+  HttpSession sesion = request.getSession();
+  sesion.invalidate(); 
 
+    %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,10 +25,10 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-              <form method="post" action="/biblioteca-2017v2/autenticarServlet">
+              <form method="post" action="/biblioteca-2017v2/session">
               <h1>Login</h1>
               <div>
-                <input type="text" id="user" name="user" class="form-control" placeholder="Username" required="" />
+                <input type="text" id="carnet" name="carnet" class="form-control" placeholder="Username" required="" />
               </div>
               <div>
                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="" />

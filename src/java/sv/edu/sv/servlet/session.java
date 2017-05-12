@@ -7,24 +7,21 @@ package sv.edu.sv.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import sv.edu.udb.funciones;
 import sv.edu.sv.bean.usuarioBean;
 import sv.edu.udb.login;
+
 /**
  *
  * @author Jose
  */
-@WebServlet(name = "autenticarServlet", urlPatterns = {"/autenticarServlet"})
-public class autenticarServlet extends HttpServlet {
+@WebServlet(name = "session", urlPatterns = {"/session"})
+public class session extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,15 +33,26 @@ public class autenticarServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-
-          
-          
-          
-          
+                    String usuario = request.getParameter("carnet");
+          String password= request.getParameter("password");
+          login inicio = new login();
+         
+          if(inicio.iniciarSession(usuario, password)){
+              HttpSession sesion = request.getSession();
+              usuarioBean usr = inicio.getDatos(usuario, password);
+              sesion.setAttribute("usuario_id", usr.getId());
+              sesion.setAttribute("usario_nombre", usr.getNombre());
+              sesion.setAttribute("usario_apellido", usr.getApellido());
+              sesion.setAttribute("usuario_carnet", usr.getCarnet());
+              sesion.setAttribute("id_tipousuario", usr.getTipousuario());
+              sesion.setAttribute("usuario_password", usr.getPassword());
+              response.sendRedirect("/biblioteca-2017v2/vista/materialMain.jsp");
+          } else{
+          response.sendRedirect("/biblioteca-2017v2/vista/login.jsp");
+          }
         }
     }
 
@@ -60,11 +68,7 @@ public class autenticarServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(autenticarServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -78,11 +82,7 @@ public class autenticarServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(autenticarServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
