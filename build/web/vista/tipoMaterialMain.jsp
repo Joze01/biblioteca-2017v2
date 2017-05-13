@@ -1,7 +1,7 @@
 <%-- 
     Document   : inicio
     Created on : 19-abr-2017, 1:17:23
-    Author     : Jose
+    Author     : David
 --%>
 <jsp:useBean id="tipoMaterialBean_b" scope="request" class="sv.edu.sv.bean.tipoMaterialBean">
  <jsp:setProperty name="tipoMaterialBean_b" property="*"/>
@@ -13,6 +13,25 @@
 <%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 <%@page session="true" language="java" import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+HttpSession sesion = request.getSession();
+
+if (sesion.getAttribute("usuario_id")==null) {
+    
+     response.sendRedirect("login.jsp?exito=2&mensaje=Debes iniciar sesion como adminitrador");
+
+} else {
+    Integer tipoUsuario=(Integer)sesion.getAttribute("id_tipousuario");
+    
+            if(tipoUsuario==1){
+                out.println("<h1>"+sesion.getAttribute("usario_nombre")+sesion.getAttribute("id_tipousuario")+"</h1>");
+            }else{
+             response.sendRedirect("login.jsp?exito=2&mensaje=Debes iniciar sesion como adminitrador");
+            }
+}
+
+%>
+
 
 <!DOCTYPE html>
 <html>

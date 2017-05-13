@@ -26,27 +26,30 @@
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/publicPrestamos.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/src/java/sv/edu/sv/bean/buscadorBean.java</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/editorialMain.jsp</file>
-            <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/Prestamos.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/login.jsp</file>
+            <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/Prestamos.jsp</file>
+            <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/assent/sesionScript.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/src/java/sv/edu/udb/Conexion.java</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/assent/header.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/assent/footer.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/respaldo/js/custom.js</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/editform/editorialMain.jsp</file>
+            <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/prestamoMain.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/autorMain.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/editform/configuracionMain.jsp</file>
-            <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/publicBusqueda.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/src/java/sv/edu/sv/servlet/controladorEditorial.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/publicBusqueda.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/src/java/sv/edu/sv/servlet/controladorUsuario.java</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/src/java/sv/edu/sv/servlet/controladorTipoMateriales.java</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/src/java/sv/edu/sv/servlet/controladorMaterial.java</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/editform/materialMain.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/src/java/sv/edu/udb/prestamo.java</file>
-            <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/src/java/sv/edu/sv/servlet/controladorBusqueda.java</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/assent/menuUsuario.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/WEB-INF/classes/displaytag.properties</file>
+            <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/src/java/sv/edu/sv/servlet/session.java</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/editform/usuarioMain.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/src/java/sv/edu/sv/bean/materialBean.java</file>
+            <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/src/java/sv/edu/sv/servlet/controladorAutor.java</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/editform/tipoMaterialMain.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/web/vista/assent/menuAdmin.jsp</file>
             <file>file:/Users/Jose/NetBeansProjects/biblioteca-2017v2/src/java/sv/edu/udb/tipoMaterial.java</file>

@@ -49,6 +49,7 @@ public class controladorAutor extends HttpServlet {
             if(metodo.equals("insertar")){
             autor_b.setNombre(request.getParameter("nombre"));
             autor_b.setDescripcion(request.getParameter("descripcion"));
+            
             resultado=autors.nuevaAutor(autor_b);
                 if(resultado){
                 response.sendRedirect("vista/autorMain.jsp?exito=1&mensaje=Insertado Correctamente");

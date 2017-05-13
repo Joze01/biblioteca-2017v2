@@ -36,22 +36,25 @@ public class session extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-                    String usuario = request.getParameter("carnet");
+           String usuario = request.getParameter("carnet");
           String password= request.getParameter("password");
           login inicio = new login();
          
           if(inicio.iniciarSession(usuario, password)){
               HttpSession sesion = request.getSession();
               usuarioBean usr = inicio.getDatos(usuario, password);
+              System.out.println("tipo usuario"+usr.getTipousuario());
               sesion.setAttribute("usuario_id", usr.getId());
               sesion.setAttribute("usario_nombre", usr.getNombre());
               sesion.setAttribute("usario_apellido", usr.getApellido());
               sesion.setAttribute("usuario_carnet", usr.getCarnet());
               sesion.setAttribute("id_tipousuario", usr.getTipousuario());
               sesion.setAttribute("usuario_password", usr.getPassword());
-              response.sendRedirect("/biblioteca-2017v2/vista/materialMain.jsp");
+              System.out.println("tipo usuario: "+sesion.getAttribute("id_tipousuario"));
+              
+              response.sendRedirect("/biblioteca-2017v2/vista/publicBusqueda.jsp");
           } else{
-          response.sendRedirect("/biblioteca-2017v2/vista/login.jsp");
+          response.sendRedirect("/biblioteca-2017v2/vista/login.jsp?exito=2&mensaje=Usuario o contraseña incorrectos");
           }
         }
     }

@@ -1,7 +1,7 @@
 <%-- 
     Document   : inicio
     Created on : 19-abr-2017, 1:17:23
-    Author     : Jose
+    Author     : David
 --%>
 <jsp:useBean id="buscador_b" scope="request" class="sv.edu.sv.bean.buscadorBean">
  <jsp:setProperty name="buscador_b" property="*"/>
@@ -14,6 +14,22 @@
 <%@taglib uri="http://displaytag.sf.net" prefix="display" %>
 
 <%@page session="true" language="java" import="java.util.*" %>
+<%
+HttpSession sesion = request.getSession();
+String usuarioss;
+Integer tiposs;
+if (sesion.getAttribute("usuario_id")==null) {
+    //response.sendRedirect("login.jsp?exito=2&mensaje=Debes iniciar sesion");
+
+} else {
+   tiposs=(Integer)sesion.getAttribute("id_tipousuario");
+   usuarioss=(String)sesion.getAttribute("usario_nombre");
+
+}
+
+%>
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -28,8 +44,21 @@
        
     <div class="container body">
       <div class="main_container">
-          
+          <%
+             if( (null!=sesion)){
+             if((sesion.getAttribute("id_tipousuario")!=null) && ((Integer)sesion.getAttribute("id_tipousuario")==1) ){
+                 
+          %>
          <jsp:include page="assent/menuAdmin.jsp"/>
+         <%
+             }else{
+         %>
+         <jsp:include page="assent/menuUsuario.jsp"/>
+         <%
+             }
+}
+         %>
+         
     <div class="right_col" role="main" style="min-height: 335px;">
   
     <%-- CONTENIDO --%>
@@ -102,6 +131,9 @@
                         <display:column title="Editorial" property="editorial_nombre" sortable="true"/>
                         <display:column title="# Paginas/Tracks" property="material_paginas" sortable="true"/>
                         <display:column title="Tipo de material" property="TipoMaterial_nombre" sortable="true"/>
+                        <display:column title="Opciones">
+                                     <a type="button" href="/biblioteca-2017v2/controladorPrestamo?tipo=<%= sesion.getAttribute("id_tipousuario") %>&material=${material.material_id}&usuario=<%= sesion.getAttribute("usuario_id") %>" class="btn btn-info">Prestar</a>          
+                        </display:column>
                     </display:table>
           
                    

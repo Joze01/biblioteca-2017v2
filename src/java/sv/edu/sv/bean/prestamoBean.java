@@ -66,9 +66,38 @@ public class prestamoBean {
     public void setUsuario(int usuario) {
         this.usuario = usuario;
     }
+    
     private int material;
     private int usuario;
     private String fechaDevolucion;
     private String fechaActual;
-    
+    private int id;
+    private int tipo;
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the tipo
+     */
+    public int getTipo() {
+        return tipo;
+    }
+
+    /**
+     * @param tipo the tipo to set
+     */
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
 }

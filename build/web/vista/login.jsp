@@ -1,11 +1,19 @@
 <%-- 
     Document   : login
     Created on : 19-abr-2017, 1:38:56
-    Author     : Jose
+    Author     : DAVID
 --%>
+<%@ page session="true" %>
+<%@page session="true" language="java" import="java.util.*" %>
 <%
   HttpSession sesion = request.getSession();
-  sesion.invalidate(); 
+ 
+if(sesion.getAttribute("usuario_id")!=null){
+sesion.setAttribute("usuario_id", null);
+    sesion.invalidate(); 
+
+
+}
 
     %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

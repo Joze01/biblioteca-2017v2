@@ -3,7 +3,10 @@
     Created on : 19-abr-2017, 1:27:17
     Author     : Jose
 --%>
+<%
+HttpSession sesion = request.getSession();
 
+%>
 <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
@@ -15,8 +18,8 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_info">
-                <span>Administrador</span>
-                <h2>John Doe</h2>
+                <span></span>
+                <h2><%= sesion.getAttribute("usario_nombre") %></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -27,14 +30,15 @@
               <div class="menu_section">
                 <h3>Biblioteca</h3>
                 <ul class="nav side-menu">
-                    <li><a href="publicBusqueda.jsp"><i class="fa fa-search"></i> Buscar <span class="fa fa-search"></span></a></li>
-                  <li><a href="publicPrestamos.jsp"><i class="fa fa-check-square"></i> Prestamos <span class="fa fa-check"></span></a></li>
+                    <li><a href="publicBusqueda.jsp"><i class="fa fa-search"></i> Prestamos <span class="fa fa-search"></span></a></li>
+                    <li><a href="publicPrestamos.jsp"><i class="fa fa-check-square"></i> Mis Prestamos <span class="fa fa-check"></span></a></li>
 
                 </ul>
               </div>
               <div class="menu_section">
                 <h3>Administracion</h3>
                 <ul class="nav side-menu">
+                    <li><a href="publicPrestamos.jsp"><i class="fa fa-book"></i> Devoluciones <span class="fa fa-book"></span></a></li>
                     <li><a href="usuarioMain.jsp"><i class="fa fa-user"></i> Usuarios <span class="fa fa-user"></span></a></li>    
                     <li><a href="configuracionMain.jsp"><i class="fa fa-cog"></i> Sistema <span class="fa fa-cog"></span></a></li>
                     <li><a><i class="fa fa-list"></i> Biblioteca <span class="fa fa-list"></span></a>

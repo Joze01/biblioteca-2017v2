@@ -12,16 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import sv.edu.sv.bean.prestamoBean;
 import sv.edu.udb.prestamo;
 
 /**
  *
  * @author Jose
  */
-@WebServlet(name = "controladorPrestamo", urlPatterns = {"/controladorPrestamo"})
-public class controladorPrestamo extends HttpServlet {
+@WebServlet(name = "controladorDevoluciones", urlPatterns = {"/controladorDevoluciones"})
+public class controladorDevoluciones extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,31 +34,25 @@ public class controladorPrestamo extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            prestamoBean prestamo_b = new prestamoBean();
-            prestamo presta = new prestamo();
-            boolean resultado=false;
             /* TODO output your page here. You may use following sample code. */
-           HttpSession sesion = request.getSession();
-           if(sesion.getAttribute("usuario_id")==null){
-               response.sendRedirect("/biblioteca-2017v2/vista/login.jsp?exito=2&mensaje=Debes iniciar sesion");
-           }else{
-            prestamo_b.setMaterial(Integer.parseInt(request.getParameter("material")));
-            prestamo_b.setUsuario(Integer.parseInt(request.getParameter("usuario")));
-            prestamo_b.setTipo(Integer.parseInt(request.getParameter("tipo")));
-            out.print("<h1> Aviso </h1>");
-            resultado=presta.nuevoPrestamo(prestamo_b);
-             
+            prestamo prs = new prestamo();
+            Integer prestamo=0;
+            Integer material=0;
+            Boolean resultado=false;
+            prestamo= Integer.parseInt(request.getParameter("id"));
+            material= Integer.parseInt(request.getParameter("material"));
+            resultado=prs.devolucion(prestamo, material);
+            
             if(resultado){
-            response.sendRedirect("/biblioteca-2017v2/vista/publicBusqueda.jsp?exito=1&mensaje=Prestamo Registrado");
+            response.sendRedirect("/biblioteca-2017v2/vista/devolucionesMain.jsp?exito=1&mensaje=Devolucion Realizada");
             }else{
-            response.sendRedirect("/biblioteca-2017v2/vista/publicBusqueda.jsp?exito=2&mensaje=No se ha registrado el Prestamo, Presentas mora o maximo de prestamos alcanzados");
+            response.sendRedirect("/biblioteca-2017v2/vista/devolucionesMain.jsp?exito=0&mensaje=No se ha podido realizar el material");
             }
             
             
-           }
-           
-           
+            
+            
+            
         }
     }
 

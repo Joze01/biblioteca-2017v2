@@ -55,6 +55,7 @@ public class Conexion {
      boolean resultado=false;
      try{
         this.s.executeUpdate(query);
+         System.out.println(query);
         return true;
      }catch(SQLException ex){
          return false;
