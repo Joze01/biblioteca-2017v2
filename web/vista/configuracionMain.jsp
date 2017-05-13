@@ -1,7 +1,7 @@
 <%-- 
     Document   : inicio
     Created on : 19-abr-2017, 1:17:23
-    Author     : Jose
+    Author     : David
 --%>
 <jsp:useBean id="configuracion_b" scope="request" class="sv.edu.sv.bean.configuracionBean">
  <jsp:setProperty name="configuracion_b" property="*"/>
@@ -65,21 +65,21 @@ if (sesion.getAttribute("usuario_id")==null) {
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/biblioteca-2017v2/controladorConfiguracion" method="post">
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="docente">Maximo prestamos docentes <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="docente"><fmt:message key="label.docente"/> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="number"  min="1" max="99" name="docente" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="alumno">Maximo prestamos alumnos <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="alumno"><fmt:message key="label.alumno"/> <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="number"  min="1" max="99" name="alumno" id="last-name" value="<% request.getParameter("descripcion"); %>" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="mora">Precio mora<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="mora"><fmt:message key="label.mora"/><span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="number"  min="0" max="99" step="any"  name="mora" id="last-name" value="<% request.getParameter("descripcion"); %>" required="required" class="form-control col-md-7 col-xs-12">
@@ -87,7 +87,7 @@ if (sesion.getAttribute("usuario_id")==null) {
                       </div>
                         <input type="hidden" value="insertar" name="metodo" />
                       <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Estado</label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12"><fmt:message key="label.estado"/></label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                               <div id="gender" class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
@@ -104,7 +104,7 @@ if (sesion.getAttribute("usuario_id")==null) {
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-success">Guardar</button>
+                          <button type="submit" class="btn btn-success"><fmt:message key="label.guardar"/></button>
                         </div>
                       </div>
 
